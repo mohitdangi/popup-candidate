@@ -68,7 +68,7 @@ body{
   .icons a{
     text-decoration: none;
     font-size: 20px;
-    color: #0ABDE3;
+    color: #f38e27;
     padding: 0 14px;
     transition-duration: 0.4s;
     transition-property: transform;
@@ -85,7 +85,7 @@ body{
   
   .centered-button button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #f38e27;
     color: white;
     border: none;
     cursor: pointer;
@@ -93,7 +93,7 @@ body{
   }
   
   .centered-button button:hover {
-    background-color: #0056b3;
+    background-color: #f38e27;
   }
 
   .btn {
@@ -103,10 +103,9 @@ body{
     background-color: #3498db;
     color: #fff;
     border: none;
- 
+    transition: opacity 0.9s ease;
     cursor: pointer;
   }
-
   .popup-container {
     display: none;
     z-index: 99;
@@ -119,28 +118,112 @@ body{
     align-items: center;
     justify-content: center;
     overflow-y: auto;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
   }
-
+  
   .popup-content {
     background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  max-width: 600px;
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-  color: #333;
-
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 90%;
+    padding: 30px;
+    text-align: center;
+    color: #333;
     max-height: 90%;
     overflow-y: auto;
-    transition: opacity 0.3s ease-in-out;
+    transform: translateY(-50px);
+    transition: transform 0.7s ease-in-out, opacity 0.7s ease-in-out;
   }
-
+  
   .popup-container.open {
     display: flex;
+    opacity: 1;
+    visibility: visible;
   }
+  
+  /* Keyframes animation for opening the popup */
+  @keyframes openPopup {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+      visibility: hidden;
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+  }
+  
+  /* Keyframes animation for closing the popup */
+  @keyframes closePopup {
+    0% {
+      opacity: 1;
+      transform: translateY(0);
+      visibility: visible;
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-50px);
+      visibility: hidden;
+    }
+  }
+  
+  /* Apply keyframes animation to open and close the popup */
+  .popup-container.open .popup-content {
+    animation: openPopup 0.7s ease-in-out forwards;
+  }
+  
+  .popup-container:not(.open) .popup-content {
+    animation: closePopup 0.7s ease-in-out forwards;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 34px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease; /* Added transform animation */
+  }
+  
+  .close-button:hover {
+    color: #ff0000; /* Change color on hover */
+    transform: rotate(180deg); /* Rotate the icon on hover */
+  }
+  .profile-name{
+    color: #f38e27 !important;
+  }
+ h2{
+  color: #f38e27 !important;
+ } 
+ i{
+  color: #f38e27 !important;
+ }
+ .profile-info {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: start;
+  gap :200px;
+}
 
+.profile-details {
+  /* flex: 1; */
+  padding-right: 20px; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  
+}
 
+.profile-image-container img {
+  width: 200px; /* Adjust the width as needed */
+  padding-left: 100px;
+}
 .profile-card {
   background-color: #fff;
   border-radius: 10px;
@@ -154,37 +237,42 @@ body{
     transition: opacity 0.3s ease-in-out;
 }
 
-.profile-image {
+/* .profile-image {
   width: 150px;
   height: 150px;
   border-radius: 50%;
   margin: 0 auto 10px;
   object-fit: cover;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
+} */
 
 .profile-name {
   margin: 0;
   font-size: 28px;
   color: #444;
+  padding-bottom: 14px;
 }
 
 .profile-email,
-.profile-contact {
+.profile-contact,
+.profile-address {
   margin-top: 5px;
   color: #888;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .profile-section {
   margin-top: 20px;
   font-size: 20px;
   color: #555;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 10px;
+  border-top: 1px dashed #f38e27;
+  padding-top: 10px;
   margin-bottom: 10px;
 }
 
+.profile-section i {
+  margin-right: 10px; /* Add space between icon and text */
+}
 .skills {
   margin-top: 10px;
   display: flex;
@@ -193,12 +281,19 @@ body{
 
 .skill {
   margin-bottom: 10px;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+
+.skill:hover {
+  transform: scale(1.1); /* Scale up on hover */
 }
 
 .skill-name {
   font-weight: bold;
   color: #333;
   font-size: 16px;
+  cursor: pointer;
 }
 
 .progress {
@@ -210,14 +305,15 @@ body{
 
 .progress-bar {
   height: 100%;
-  background-color: #007bff;
-}.projects {
+  background-color: #f38e27 ;
+}
+.projects {
   margin-top: 30px;
+  cursor: pointer;
 }
 
 .project {
-  background-color: #f9f9f9;
-  border-radius: 8px;
+ 
   padding: 15px;
   margin-bottom: 20px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
@@ -242,7 +338,12 @@ body{
 .link-icon {
   font-size: 16px;
   margin-top: 10px;
-  color: #007bff;
+  color: #f38e27;
+  cursor: pointer; /* Add cursor pointer */
+  transition: color 0.3s ease;
+}
+.link-icon:hover {
+  color: #f38e27;
 }
 .profile-about {
   color: #444;
@@ -250,6 +351,27 @@ body{
   line-height: 1.6;
   text-align: justify;
   margin-top: 20px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.submit-button {
+  background-color: #f38e27;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer; /* Add cursor pointer */
+  transition: background-color 0.3s ease;
+}
+.profile-about:hover {
+  transform: translateY(-3px);
+  transition: transform 0.3s ease;
+}
+.submit-button:hover {
+  background-color: #f38e27;
 }
 
   
@@ -267,4 +389,15 @@ body{
     .project-details .column {
       width: 100%;
     }
+    .profile-info {
+    flex-direction: column-reverse;
+    gap:0px;
+    }
+    
+.profile-image-container img{
+  padding: 0px;
+}
+.profile-details {
+padding: 0px;
+}
   }
