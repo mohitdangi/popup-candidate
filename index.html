@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Profile Card</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+  </head>
+  <body>
+
+    <!--Profile card start-->
+    <div class="card">
+      <div class="card-image">
+        <img src="https://media.istockphoto.com/id/1294598266/vector/orange-abstract-template-background.jpg?s=612x612&w=0&k=20&c=VrQ3WWLNEyhOZwtRdlpqtUs7Phh5VuQGaLwPn0L32k8=" alt="">
+      </div>
+      <div class="profile-image-card">
+        <img src="./AnyConv.com__aeaf5908-ce56-4559-8e19-0872a17624c0.jpg" alt="">
+      </div>
+      <div class="card-content">
+        <h3>Mohit dangi</h3>
+       <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
+        <p>Email: mohit@example.com</p>
+        <p>Phone: +1234567890</p>
+        <div class="centered-button">
+            <button onclick="showPopup()">Profile Info</button>
+          </div>
+    </div>
+      <!-- <div class="icons">
+        <a href="#" class="fab fa-facebook-f"></a>
+        <a href="#" class="fab fa-youtube"></a>
+        <a href="#" class="fab fa-instagram"></a>
+        <a href="#" class="fab fa-twitter"></a>
+        <a href="#" class="fab fa-whatsapp"></a>
+      </div> -->
+    </div>
+    <!--Profile card end-->
+    <div class="popup-container" id="popupContainer">
+        <div class="popup-content">
+            <span class="close-button" onclick="closePopup()">&times;</span>
+        <img class="profile-image" src="./AnyConv.com__aeaf5908-ce56-4559-8e19-0872a17624c0.jpg" alt="Profile Image">
+        <h1 class="profile-name">Mohit Dangi</h1>
+        <p class="profile-email">Email: mohit@example.com</p>
+        <p class="profile-contact">Contact: +1 123-456-7890</p>
+        <h2 class="profile-section">Skills</h2>
+        <div class="skills">
+            <div class="skill">
+              <span class="skill-name">HTML/CSS</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 80%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">JavaScript</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 75%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">React</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 70%"></div>
+              </div>
+            </div>
+            <div class="skill">
+              <span class="skill-name">Node.js</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 65%"></div>
+              </div>
+            </div>
+            <!-- Add more skills here -->
+          </div>
+          
+    
+          <h2 class="profile-section">Projects</h2>
+          <div class="projects">
+            <div class="project">
+              <h3 class="project-title">Project 1 - Voting System</h3>
+              <p class="project-description">This project implements a dummy voting system using HTML, CSS, and JavaScript.</p>
+              <span class="link-icon">🔗LINK</span>
+            </div>
+            <div class="project">
+              <h3 class="project-title">Project 2 - E-Commerce Website</h3>
+              <p class="project-description">Developed a responsive e-commerce website using React and integrated with a backend API.</p>
+              <span class="link-icon">🔗LINK</span>
+            </div>
+           
+          </div>
+          
+        
+        <h2 class="profile-section">About Me</h2>
+        <p class="profile-about">
+          I'm a passionate web developer with a strong foundation in front-end technologies. I love creating user-friendly and visually appealing websites that provide meaningful user experiences.
+        </p>
+    
+          <button class="submit-button" onclick="closePopup()">Submit</button>
+        </div>
+      </div>
+    <script>
+        function showPopup() {
+          const popupContainer = document.getElementById('popupContainer');
+          popupContainer.classList.add('open');
+        }
+    
+        function closePopup() {
+          const popupContainer = document.getElementById('popupContainer');
+          popupContainer.classList.remove('open');
+        }
+      </script>
+  </body>
+</html>
