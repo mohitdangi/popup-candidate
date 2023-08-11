@@ -36,13 +36,25 @@
     <!--Profile card end-->
     <div class="popup-container" id="popupContainer">
         <div class="popup-content">
-            <span class="close-button" onclick="closePopup()">&times;</span>
-        <img class="profile-image" src="./AnyConv.com__aeaf5908-ce56-4559-8e19-0872a17624c0.jpg" alt="Profile Image">
-        <h1 class="profile-name">Mohit Dangi</h1>
-        <p class="profile-email">Email: mohit@example.com</p>
-        <p class="profile-contact">Contact: +1 123-456-7890</p>
-        <h2 class="profile-section">Skills</h2>
+        <span class="close-button" onclick="closePopup()">&times;</span>
+        <div class="profile-info">
+          <div class="profile-details">
+         <h1 class="profile-name"><i class="fas fa-user"></i> Mohit Dangi</h1>
+                <p class="profile-email"><i class="fas fa-envelope"></i> Email: mohit@example.com</p>
+                <p class="profile-contact"><i class="fas fa-phone"></i> Contact: +1 123-456-7890</p>
+                <p class="profile-address"><i class="fas fa-map-marker-alt"></i> Address: Your Address Here</p>
+            </div>
+          <div class="profile-image-container">
+              <img class="profile-image" src="./AnyConv.com__aeaf5908-ce56-4559-8e19-0872a17624c0.jpg" alt="Profile Image">
+          </div>
+      </div>
+        <h2 class="profile-section"><i class="fas fa-info-circle"></i> About Me</h2>
+        <p class="profile-about">
+          I'm a passionate web developer with a strong foundation in front-end technologies. I love creating user-friendly and visually appealing websites that provide meaningful user experiences.
+        </p>
+        <h2 class="profile-section"><i class="fas fa-code"></i>Skills</h2>
         <div class="skills">
+          
             <div class="skill">
               <span class="skill-name">HTML/CSS</span>
               <div class="progress">
@@ -67,11 +79,12 @@
                 <div class="progress-bar" style="width: 65%"></div>
               </div>
             </div>
+            
             <!-- Add more skills here -->
           </div>
           
     
-          <h2 class="profile-section">Projects</h2>
+          <h2 class="profile-section"><i class="fas fa-tasks"></i>Projects</h2>
           <div class="projects">
             <div class="project">
               <h3 class="project-title">Project 1 - Voting System</h3>
@@ -87,10 +100,7 @@
           </div>
           
         
-        <h2 class="profile-section">About Me</h2>
-        <p class="profile-about">
-          I'm a passionate web developer with a strong foundation in front-end technologies. I love creating user-friendly and visually appealing websites that provide meaningful user experiences.
-        </p>
+  
     
           <button class="submit-button" onclick="closePopup()">Submit</button>
         </div>
@@ -105,6 +115,7 @@
           const popupContainer = document.getElementById('popupContainer');
           popupContainer.classList.remove('open');
         }
+        
       </script>
   </body>
 </html>
